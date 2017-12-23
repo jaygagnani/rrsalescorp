@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:text="Title"
+        android:id="@+id/product_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TextView
+        android:text="Category"
+        android:id="@+id/product_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/product_title"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:text="Rate"
+        android:id="@+id/product_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/product_title"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/colorPrimary" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">R.R. Sales Corporation</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">R.R. Sales Corp.</string>
+    <string name="tab_text_products">Products</string>
+    <string name="tab_text_customers">Customers</string>
+    <string name="tab_text_orders">Tab 3</string>
+</resources>
