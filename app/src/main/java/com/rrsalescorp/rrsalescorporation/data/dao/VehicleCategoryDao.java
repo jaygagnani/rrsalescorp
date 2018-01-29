@@ -36,7 +36,7 @@ public interface VehicleCategoryDao {
     int countCategories();
 
     @Insert
-    void insertOne(VehicleCategory categorie);
+    void insertOne(VehicleCategory category);
 
     @Insert
     void insertAll(VehicleCategory... categories);

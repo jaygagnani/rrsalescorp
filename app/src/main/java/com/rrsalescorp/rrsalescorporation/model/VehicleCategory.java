@@ -25,7 +25,7 @@ public class VehicleCategory {
     String name;
 
     @ColumnInfo(name = "category_code")
-    String code;~
+    String code;
 
     public VehicleCategory(String name) {
         this.name = name;

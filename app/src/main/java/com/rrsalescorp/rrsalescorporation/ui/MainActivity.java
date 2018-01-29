@@ -59,15 +59,15 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mMainActivityPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        fabAddProduct = (FloatingActionButton) findViewById(R.id.fab_addProduct);
-        fabAddCategory = (FloatingActionButton) findViewById(R.id.fab_addCategory);
-        fabAddCustomer = (FloatingActionButton) findViewById(R.id.fab_addCustomer);
-        fabAddOrder = (FloatingActionButton) findViewById(R.id.fab_addOrder);
+        fabAddProduct = findViewById(R.id.fab_addProduct);
+        fabAddCategory = findViewById(R.id.fab_addCategory);
+        fabAddCustomer = findViewById(R.id.fab_addCustomer);
+        fabAddOrder = findViewById(R.id.fab_addOrder);
 
         db = Room.databaseBuilder(this, AppDatabase.class, "rrsales").allowMainThreadQueries().build();
 
@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(getApplicationContext(), "Add Order coming up soon!", Toast.LENGTH_SHORT).show();
-                String name = db.vehicleCategoryDao().getAll().get(0).getName();
                 int count = db.vehicleCategoryDao().countCategories();
+                String name = db.vehicleCategoryDao().getAll().get(count-1).getName();
                 Toast.makeText(getApplicationContext(), "Vehicle: " + name + "\n Count: " + count, Toast.LENGTH_SHORT).show();
             }
         });

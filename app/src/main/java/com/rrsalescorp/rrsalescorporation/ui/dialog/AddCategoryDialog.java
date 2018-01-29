@@ -2,7 +2,6 @@ package com.rrsalescorp.rrsalescorporation.ui.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.content.DialogInterface;
@@ -22,33 +21,21 @@ import com.rrsalescorp.rrsalescorporation.ui.MainActivity;
  */
 
 public class AddCategoryDialog extends DialogFragment {
-
-    EditText categoryName;
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
-        View dialogView = inflater.inflate(R.layout.dialog_add_category, container, false);
-        categoryName = (EditText) dialogView.findViewById(R.id.add_category);
-
-        return dialogView;
-    }
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 //        return super.onCreateDialog(savedInstanceState);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-
-        builder.setView(inflater.inflate(R.layout.dialog_add_category, null))
+        View view = inflater.inflate(R.layout.dialog_add_category, null);
+        final EditText addCategoryEditText = view.findViewById(R.id.addCategoryEditText);
+        builder.setView(view)
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String categoryName1 = categoryName.getText().toString();
-                        Toast.makeText(getContext(), "Category Name: " + categoryName1, Toast.LENGTH_SHORT).show();
-                        VehicleCategory category = new VehicleCategory(categoryName1);
+                        String categoryName = addCategoryEditText.getText().toString();
+                        Toast.makeText(getContext(), "Category Name: " + categoryName, Toast.LENGTH_SHORT).show();
+                        VehicleCategory category = new VehicleCategory(categoryName);
                         MainActivity.db.vehicleCategoryDao().insertOne(category);
 //                        new AsyncTask<VehicleCategory, Void, Void>() {
 //                            @Override
