@@ -18,9 +18,9 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
+            android:background="?android:attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name">
@@ -61,14 +61,64 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="@android:color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:menu_labels_textColor="@color/colorAccent"
+        app:menu_backgroundColor="@android:color/transparent"
+        app:menu_colorNormal="@color/colorFab"
+        app:menu_colorPressed="@color/colorFab"
+        app:menu_colorRipple="@color/colorPrimary"
+        app:menu_icon="@drawable/fab_add"
+        app:menu_fab_size="normal"
+        app:menu_showShadow="true"
+        app:menu_labels_colorNormal="@android:color/white"
+        app:menu_labels_position="left">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_addCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_label="Add Category"
+            android:src="@android:drawable/ic_menu_edit" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_addProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_label="Add Product"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_addCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_label="Add Customer"
+            android:src="@android:drawable/ic_delete" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_addOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_label="Add Order"
+            android:src="@android:drawable/ic_input_get" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="end|bottom"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:tint="@android:color/white"-->
+        <!--app:backgroundTint="@color/colorFab"-->
+        <!--app:srcCompat="@android:drawable/ic_input_add" />-->
 
 </android.support.design.widget.CoordinatorLayout>

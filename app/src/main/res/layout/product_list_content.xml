@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="?android:attr/selectableItemBackground">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:backgroundTint="?android:attr/selectableItemBackground"
+    android:layout_margin="@dimen/activity_horizontal_margin">
 
     <TextView
-        android:text="Title"
+        android:text="Product Name"
         android:id="@+id/product_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +18,7 @@
         android:textColor="@color/colorPrimaryDark" />
 
     <TextView
-        android:text="Category"
+        android:text="Product Category"
         android:id="@+id/product_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +26,7 @@
         android:textColor="@color/colorPrimary" />
 
     <TextView
-        android:text="Rate"
+        android:text="Selling Price"
         android:id="@+id/product_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

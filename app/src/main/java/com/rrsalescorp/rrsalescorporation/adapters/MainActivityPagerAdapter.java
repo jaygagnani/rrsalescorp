@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.rrsalescorp.rrsalescorporation.ui.fragments.CustomersTabFragment;
 import com.rrsalescorp.rrsalescorporation.ui.fragments.OrdersTabFragment;
-import com.rrsalescorp.rrsalescorporation.ui.fragments.ProductsTabFragment;
+import com.rrsalescorp.rrsalescorporation.ui.fragments.CategoriesTabFragment;
 
 /**
  * Created by JG on 23-Dec-17.
@@ -25,8 +25,8 @@ public class MainActivityPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                ProductsTabFragment productsTabFragment = new ProductsTabFragment();
-                return productsTabFragment;
+                CategoriesTabFragment categoriesTabFragment = new CategoriesTabFragment();
+                return categoriesTabFragment;
 
             case 1:
                 CustomersTabFragment customersTabFragment = new CustomersTabFragment();

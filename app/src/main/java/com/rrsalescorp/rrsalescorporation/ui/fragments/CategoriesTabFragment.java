@@ -7,42 +7,38 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.rrsalescorp.rrsalescorporation.R;
-import com.rrsalescorp.rrsalescorporation.adapters.ProductsAdapter;
-import com.rrsalescorp.rrsalescorporation.model.Product;
+import com.rrsalescorp.rrsalescorporation.adapters.CategoryListAdapter;
+import com.rrsalescorp.rrsalescorporation.model.VehicleCategory;
+import com.rrsalescorp.rrsalescorporation.ui.MainActivity;
 
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by JG on 23-Dec-17.
  */
 
-public class ProductsTabFragment extends Fragment {
+public class CategoriesTabFragment extends Fragment {
 
-    private ArrayList<Product> products;
+    private ArrayList<VehicleCategory> categories;
     private RecyclerView mRecyclerView;
-    private ProductsAdapter mAdapter;
+    private CategoryListAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.products_tab_layout, container, false);
+        View rootView = inflater.inflate(R.layout.categories_tab_layout, container, false);
 
-        products = new ArrayList<>();
-        mAdapter = new ProductsAdapter(products, getActivity());
+        categories = new ArrayList<>();
+        mAdapter = new CategoryListAdapter(categories, getActivity().getApplicationContext());
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.main_recyclerview);
-        Log.d(TAG, "onCreateView: " + mRecyclerView.getWidth());
-        mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -56,14 +52,14 @@ public class ProductsTabFragment extends Fragment {
     }
 
     private void setDummyProduct() {
-        String[] names = {"abc", "bcd", "cde", "def"};
-        String[] noOfWheels = {"2", "3", "3", "2"};
-        String[] categories = {"cba", "dcb", "edc", "fed"};
+//        String[] names = {"Honda", "Shine", "Passion", "Splendor", "Bajaj", "Hero", "Ape", "Hero Honda", "Passion Pro", "Activa", "Tata", "All"};
 
-        for(int i = 0; i < names.length; i++) {
-            Product newProduct = new Product(names[i], noOfWheels[i], categories[i], 0.0);
-            products.add(newProduct);
-        }
+//        for(int i = 0; i < names.length; i++) {
+//            VehicleCategory newCategory = new VehicleCategory(names[i], 2);
+//            categories.add(newCategory);
+//        }
+
+//        categories = (ArrayList<VehicleCategory>) MainActivity.db.vehicleCategoryDao().getAll();
 
         mAdapter.notifyDataSetChanged();
     }

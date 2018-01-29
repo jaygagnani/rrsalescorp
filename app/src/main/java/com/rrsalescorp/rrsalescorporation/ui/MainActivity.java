@@ -1,8 +1,9 @@
 package com.rrsalescorp.rrsalescorporation.ui;
 
+import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,9 +13,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionButton;
 
 import com.rrsalescorp.rrsalescorporation.R;
 import com.rrsalescorp.rrsalescorporation.adapters.MainActivityPagerAdapter;
+import com.rrsalescorp.rrsalescorporation.data.room_database.AppDatabase;
+import com.rrsalescorp.rrsalescorporation.ui.dialog.AddCategoryDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private FloatingActionButton fabAddCategory, fabAddProduct, fabAddCustomer, fabAddOrder;
+
+    public static AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +64,14 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fabAddProduct = (FloatingActionButton) findViewById(R.id.fab_addProduct);
+        fabAddCategory = (FloatingActionButton) findViewById(R.id.fab_addCategory);
+        fabAddCustomer = (FloatingActionButton) findViewById(R.id.fab_addCustomer);
+        fabAddOrder = (FloatingActionButton) findViewById(R.id.fab_addOrder);
 
+        db = Room.databaseBuilder(this, AppDatabase.class, "rrsales").allowMainThreadQueries().build();
+
+        setFabMenuBtnClickListener();
     }
 
 
@@ -86,5 +95,42 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setFabMenuBtnClickListener() {
+        fabAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        fabAddCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment dialogFragment = new AddCategoryDialog();
+                dialogFragment.show(getSupportFragmentManager(), "add category");
+            }
+        });
+
+        fabAddCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddCustomerActivityOld.class);
+                startActivity(intent);
+            }
+        });
+
+        fabAddOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(), "Add Order coming up soon!", Toast.LENGTH_SHORT).show();
+                String name = db.vehicleCategoryDao().getAll().get(0).getName();
+                int count = db.vehicleCategoryDao().countCategories();
+                Toast.makeText(getApplicationContext(), "Vehicle: " + name + "\n Count: " + count, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rrsalescorp.rrsalescorporation.ui.AddCustomerActivityOld">
+
+    <!--First & Last Name-->
+    <LinearLayout
+        android:id="@+id/customer_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_firstName_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_firstName_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="First Name"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_lastName_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_lastName_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Last Name"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <!--Company Name-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/customer_companyName_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/customer_name_layout">
+        <EditText
+            android:id="@+id/customer_companyName_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Company Name"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Mobile & Office Number-->
+    <LinearLayout
+        android:id="@+id/customer_contact_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/customer_companyName_add_layout">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_mobile_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_mobile_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Mobile No." />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_officeNo_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_officeNo_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPhonetic"
+                android:hint="Office No."/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <!--Alt. No. & Email ID-->
+    <LinearLayout
+        android:id="@+id/customer_contact_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/customer_contact_layout1">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_altNo_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_altNo_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Alternate No." />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_email_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_email_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email ID"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <!--Address-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/customer_address_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/customer_contact_layout2">
+        <EditText
+            android:id="@+id/customer_address_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:hint="Address"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <!--State-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/customer_state_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/customer_address_add_layout">
+        <android.support.v7.widget.SearchView
+            android:id="@+id/customer_state_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:queryHint="State"
+            app:defaultQueryHint="State" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--City & Pincode-->
+    <LinearLayout
+        android:id="@+id/customer_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/customer_state_add_layout">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_city_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.SearchView
+                android:id="@+id/customer_city_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/customer_pincode_add_layout"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/customer_pincode_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Pincode"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <!--Default discount % to give this customer-->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/customer_discount_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/customer_address_layout">
+        <EditText
+            android:id="@+id/customer_discount_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Discount % to give this customer on all orders"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Extra comments for the customer -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/customer_comment_add_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/customer_discount_add_layout">
+        <EditText
+            android:id="@+id/customer_comment_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:hint="Extra Comments for the Customer"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Save Button-->
+    <Button
+        android:id="@+id/customer_save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/customer_comment_add_layout"
+        android:text="Add Customer" />
+
+</android.support.constraint.ConstraintLayout>
